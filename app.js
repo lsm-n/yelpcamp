@@ -24,11 +24,11 @@ var User = require("./models/user");
 //var seedDB = require("./seeds");
 //seedDB(); // calling seedDB function
 
-//connects to mongoDB
-mongoose.connect(process.env.DATABASEURL);
-//mongoose.connect("mongodb://lsm-n:yelpcamp@ds031647.mlab.com:31647/yelpcamp");
-mongoose.Promise = global.Promise;
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
 
+mongoose.connect(url);
+
+mongoose.Promise = global.Promise;
 
 app.use(flash());
 app.use(methodOverride("_method"));
